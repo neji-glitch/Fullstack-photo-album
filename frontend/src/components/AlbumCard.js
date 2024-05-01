@@ -16,25 +16,19 @@ const AlbumCard = ({ album, onEdit, onDelete, onCheckPhotos }) => {
       <div className="card-header">
         <h3 className="card-title">{album.title}</h3>
         <div className="card-buttons">
-          {/* <Button type="primary" onClick={() => onEdit(album.id)}>
-              {intl.formatMessage({ id: "albumCard.edit" })}
-            </Button> */}
           <button
             className="icon-button edit-button"
             onClick={() => onEdit(album.id)}
           >
-            {" "}
-            {/* Use a button instead of a Button component */}
-            <EditOutlined /> {/* Replace the text with the pen icon */}
-            <span>Edit</span> {/* Text for edit action */}
+            <EditOutlined />
+            <span>{intl.formatMessage({ id: "albumCard.edit" })}</span>{" "}
           </button>
           <button
             className="icon-button delete-button"
             onClick={() => onDelete(album.id)}
           >
             {" "}
-            {/* Use button instead of Button component */}
-            <DeleteOutlined /> {/* Trash bin icon for delete action */}
+            <DeleteOutlined />
           </button>
         </div>
       </div>
@@ -43,9 +37,6 @@ const AlbumCard = ({ album, onEdit, onDelete, onCheckPhotos }) => {
           {intl.formatMessage({ id: "albumCard.photos" })}
         </span>
         <span> {photoCount} </span>
-        {/* { <Button type="secondary" onClick={() => onCheckPhotos(album.id)}>
-            {intl.formatMessage({ id: "albumCard.checkPhotos" })}
-          </Button> } */}
       </p>
       <div className="check-photos-button">
         <Button variant="link" onClick={() => onCheckPhotos(album.id)}>
