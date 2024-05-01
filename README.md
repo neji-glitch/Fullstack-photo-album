@@ -18,8 +18,12 @@ First, clone the repository to your local machine:
 git clone https://github.com/yourusername/fullstack-photo-album.git
 cd fullstack-photo-album
 
-### **Installing Dependencies**
-Install dependencies for both the frontend and backend using the provided scripts:
+### **Installing Global Dependencies**
+We need to start by installing the global dependecies you need to run :
+npm install
+
+### **Installing local Dependencies**
+Install local dependencies for both the frontend and backend using the provided scripts:
 npm run install-all
 This command will navigate into both the frontend and backend directories and install necessary packages.
 
