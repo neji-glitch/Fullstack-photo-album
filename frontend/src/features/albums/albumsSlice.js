@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+/*Fetches albums for a specific user from a given API endpoint. 
+If the fetch fails, it throws an error, otherwise, it returns the albums data.*/
 export const fetchAlbums = createAsyncThunk(
   "albums/fetchAlbums",
   async (userId) => {
@@ -13,7 +15,8 @@ export const fetchAlbums = createAsyncThunk(
     return jsonResponse.data;
   }
 );
-
+/*Deletes a specific album by making a DELETE request to the API. 
+On success, it returns the album's ID to be removed from the state; on failure, it throws an error.*/
 export const deleteAlbum = createAsyncThunk(
   "albums/deleteAlbum",
   async ({ userId, albumId }) => {
@@ -30,7 +33,8 @@ export const deleteAlbum = createAsyncThunk(
   }
 );
 
-// Async thunk for creating an album
+/*Sends a POST request to the API to create a new album with data provided in the request body. 
+On success, the newly created album's data is returned and logged; on failure, an error is thrown and logged.*/
 export const createAlbum = createAsyncThunk(
   "albums/createAlbum",
   async (albumData, { rejectWithValue }) => {
@@ -66,7 +70,8 @@ export const createAlbum = createAsyncThunk(
   }
 );
 
-// Async thunk for updating an album
+/*Updates an existing album's details by sending a PUT request to the API.
+ This thunk logs IDs and data being updated and, upon successful update, returns the updated album's data. */
 export const updateAlbum = createAsyncThunk(
   "albums/updateAlbum",
   async ({ userId, albumId, albumData }, { rejectWithValue }) => {
@@ -94,6 +99,11 @@ export const updateAlbum = createAsyncThunk(
     }
   }
 );
+/*The slice's reducers handle these async actions by updating the state based on whether the actions are pending,
+ fulfilled, or rejected. This allows the UI components to react accordingly,
+ providing users with real-time feedback on their actions such as loading indicators or error messages. 
+The slice also manages the albums data and their fetch status to enable efficient data handling 
+and state updates across the application.*/
 
 const albumsSlice = createSlice({
   name: "albums",

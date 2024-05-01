@@ -136,7 +136,7 @@
   display: flex;
   justify-content: center; /* Horizontally center the content */
   align-items: center; /* Vertically center the content */
-  height: 100vh; /* Set the container height to viewport height */
+  height: 60vh; /* Set the container height to viewport height */
 }
 
 /* Custom styles for loading and error messages */
@@ -174,15 +174,14 @@
 
 /* Custom CSS for modern navbar styling */
 /* Enhanced Navbar Styles */
-/* Enhanced Navbar Styles */
 .navbar {
-  background-color: #dacbcb; /* Light background for a clean look */
+  background-color: #ffffff; /* Light background for a clean look */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Enhanced shadow for more depth */
   padding: 0.5rem 2rem; /* Increased padding for better spacing */
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Ensures content is spread out */
-  margin-bottom: 40px; /* Adjust the value as needed */
+  /* justify-content: space-between; Ensures content is spread out */
+  margin-bottom: 40px;
 }
 
 .navbar-brand {
@@ -190,6 +189,7 @@
   color: #007bff;
   font-size: 1.5rem;
   transition: color 0.3s ease;
+  margin-left: 30px;
 }
 
 .navbar-brand:hover,
@@ -231,6 +231,7 @@
   display: flex;
   gap: 0.5rem;
   margin-left: auto; /* Pushes the language buttons to the right */
+  margin-right: 30px;
 }
 
 .language-button {
@@ -562,6 +563,9 @@ html {
 .card-title {
   flex: 1;
   margin: 0;
+  word-wrap: break-word;
+  /* Optionally, you can add a max-width to prevent the title from taking too much space */
+  max-width: 70%;
 }
 
 .card-buttons {
@@ -600,4 +604,29 @@ html {
 
 .user-card .NumPhoto {
   margin-top: 30px; /* Adjust the value as needed */
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Adjust the gap as needed */
+}
+
+/* Optional: If you want the buttons to be aligned vertically */
+.button-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the start (left) */
+}
+
+.nav-list {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Align children (albums and paginator) on the main axis */
+  height: 100vh; /* Use the full height of the viewport */
+  padding: 20px; /* Or any suitable padding */
 }

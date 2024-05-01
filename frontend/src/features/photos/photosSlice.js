@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+/*Retrieves a list of photos from a specific album using a GET request. If successful, it organizes the photos along 
+with their count into a structured format to update the Redux state, facilitating efficient data access and manipulation.*/
 export const fetchPhotos = createAsyncThunk(
   "photos/fetchPhotos",
   async (albumId, { rejectWithValue }) => {
@@ -11,17 +13,21 @@ export const fetchPhotos = createAsyncThunk(
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }
-      // Ensure the payload structure matches what the reducer expects
+
       return {
         photos: jsonResponse.data,
         count: jsonResponse.data.length,
-        albumId: albumId, // Make sure this is correctly passed
+        albumId: albumId,
       };
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
+
+/*Handles the creation of a new photo via a POST request. It expects photoData containing necessary information
+ like albumId. If the operation is successful, the new photo details are added to the state, 
+enhancing the user experience by allowing for immediate interaction with the newly added photo.*/
 
 export const createPhoto = createAsyncThunk(
   "albums/createPhoto",
@@ -42,16 +48,18 @@ export const createPhoto = createAsyncThunk(
         console.error("Failed to create photo, response:", response);
         throw new Error(data.message || "Could not create photo");
       }
-      // Ensure this object is correctly formatted
+
       console.log("photo created:", data.data);
-      return { photo: data.data, albumId: photoData.albumId }; // Make sure data.data contains the 'id'
+      return { photo: data.data, albumId: photoData.albumId };
     } catch (error) {
       console.error("Error in createPhoto:", error);
       return rejectWithValue(error.message);
     }
   }
 );
-
+/*Fetches detailed information about a specific photo through a GET request using photo and album identifiers. 
+Successful data retrieval updates the state to include this detailed photo data, which can be used for displaying
+ or editing the photo in the UI.*/
 export const fetchPhotoById = createAsyncThunk(
   "photos/fetchPhotoById",
   async ({ photoData }, { rejectWithValue }) => {
@@ -72,7 +80,9 @@ export const fetchPhotoById = createAsyncThunk(
     }
   }
 );
-
+/* Implements the deletion of a specific photo via a DELETE request. On successful deletion, the photo is removed 
+from the state, ensuring the UI remains in sync with the backend without requiring a full 
+page reload or re-fetch of data.*/
 export const deletePhoto = createAsyncThunk(
   "albums/deletePhoto",
   async ({ albumId, photoId }, { rejectWithValue }) => {
@@ -92,11 +102,12 @@ export const deletePhoto = createAsyncThunk(
     }
   }
 );
-
+/*The slice's extraReducers manage the state transitions based on the lifecycle of these asynchronous actions—loading,
+ success, and failure—allowing the application to respond dynamically to changes in the state 
+ (e.g., showing loading indicators, updating UI elements upon success, or handling errors).*/
 const photosSlice = createSlice({
   name: "photos",
   initialState: {
-    //photos: [],
     photosByAlbum: {},
     status: "idle",
     error: null,
@@ -119,18 +130,16 @@ const photosSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(deletePhoto.fulfilled, (state, action) => {
-        const { albumId, photoId } = action.meta.arg; // Ensure you pass albumId and photoId from the thunk
+        const { albumId, photoId } = action.meta.arg;
         if (state.photosByAlbum[albumId]) {
           state.photosByAlbum[albumId].photos = state.photosByAlbum[
             albumId
           ].photos.filter((photo) => photo.id !== photoId);
-          state.photosByAlbum[albumId].count--; // Adjust the count accordingly
+          state.photosByAlbum[albumId].count--;
         }
         state.status = "succeeded";
-        // Optionally, set a message indicating success
       })
       .addCase(deletePhoto.rejected, (state, action) => {
-        // Optionally, handle errors, such as updating state to show that deletion failed
         state.error = action.error.message;
       })
       .addCase(createPhoto.pending, (state) => {
@@ -142,7 +151,6 @@ const photosSlice = createSlice({
           state.photosByAlbum[albumId] = { photos: [], count: 0 };
         }
         if (photo && photo.id) {
-          // Check that photo and photo.id are defined
           state.photosByAlbum[albumId].photos.push(photo);
           state.photosByAlbum[albumId].count++;
         }

@@ -1,4 +1,4 @@
-require("dotenv").config(); // First line for dotenv
+require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -8,7 +8,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:3000", // Allow all origins, or specify like this to allow requests from your React app
+    origin: "http://localhost:3000",
   })
 );
 app.use(bodyParser.json()); // Parse JSON bodies

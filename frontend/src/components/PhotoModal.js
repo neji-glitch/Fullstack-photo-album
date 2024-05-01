@@ -13,12 +13,6 @@ const PhotoModal = ({ show, onHide, photo, albumId }) => {
   const intl = useIntl();
 
   const handleSubmit = () => {
-    console.log("Submitting Photo Data:", {
-      title,
-      albumId,
-      url,
-      thumbnailUrl,
-    });
     const photoData = {
       title,
       albumId,
@@ -28,11 +22,11 @@ const PhotoModal = ({ show, onHide, photo, albumId }) => {
     dispatch(createPhoto(photoData))
       .unwrap()
       .then((newPhoto) => {
-        console.log("New photo added:", newPhoto); // Ensure 'newPhoto' includes new photo details
-        setTitle(""); // Clear the title field after successful addition
-        setUrl(""); // Clear the url field
-        setThumbnailUrl(""); // Clear the thumbnailUrl field
-        onHide(); // Hide the modal after successful addition
+        console.log("New photo added:", newPhoto);
+        setTitle("");
+        setUrl("");
+        setThumbnailUrl("");
+        onHide();
       })
       .catch((error) => {
         console.error("Creation failed:", error);

@@ -18,12 +18,12 @@ const Navbar = ({
   const navigate = useNavigate();
 
   const toggleNavbar = () => {
-    setIsNavExpanded((prevState) => !prevState); // Ensure state is toggled based on the previous state
-    console.log(isNavExpanded); // This will still log the previous state due to async state updates
+    setIsNavExpanded((prevState) => !prevState);
+    console.log(isNavExpanded);
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to="/">
         Photo Album Application 📷
       </Link>

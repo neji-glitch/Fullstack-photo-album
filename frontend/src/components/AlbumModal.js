@@ -31,7 +31,7 @@ const AlbumModal = ({ show, onHide, isEdit, album, userId }) => {
           setTitle("");
           onHide();
         })
-        .then(() => dispatch(fetchAlbums(userId))) // Ensure to re-fetch albums
+        .then(() => dispatch(fetchAlbums(userId)))
         .catch((error) => {
           console.error("Update failed:", error);
         });
@@ -39,8 +39,8 @@ const AlbumModal = ({ show, onHide, isEdit, album, userId }) => {
       dispatch(createAlbum(albumData))
         .unwrap()
         .then((newAlbum) => {
-          setTitle(""); // Clear the title field after successful addition
-          onHide(); // Hide the modal after successful addition
+          setTitle("");
+          onHide();
           console.log("New album added:", newAlbum); // Log the new album with ID
         })
         .catch((error) => {

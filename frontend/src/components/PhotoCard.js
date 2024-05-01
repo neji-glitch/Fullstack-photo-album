@@ -23,12 +23,13 @@ const PhotoCard = ({ photo, onDelete, onClick }) => {
             <span>{photo.title}</span>
             <div className="icon-button delete-button">
               <Button
+                className="btn btn-danger"
                 onClick={(e) => {
                   e.stopPropagation(); // Prevent click event from bubbling up to the card
                   onDelete(photo.id);
                 }}
               >
-                <DeleteOutlined /> {/* Trash bin icon for delete action */}
+                <DeleteOutlined />
               </Button>
             </div>
           </div>

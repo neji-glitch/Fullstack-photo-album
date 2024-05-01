@@ -79,10 +79,9 @@ exports.findPhotoById = (id) => {
     db.get("SELECT * FROM photos WHERE id = ?", [id], (err, photos) => {
       if (err) {
         reject(err);
-        console.log("error ye man");
+        console.log("error");
       } else {
         resolve(photos);
-        console.log("mchet s7i7a")
       }
     });
   });

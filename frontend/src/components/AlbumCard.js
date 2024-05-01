@@ -20,7 +20,9 @@ const AlbumCard = ({ album, onEdit, onDelete, onCheckPhotos }) => {
             className="icon-button edit-button"
             onClick={() => onEdit(album.id)}
           >
-            <EditOutlined />
+            <span className="icon">
+              <EditOutlined />
+            </span>
             <span>{intl.formatMessage({ id: "albumCard.edit" })}</span>{" "}
           </button>
           <button

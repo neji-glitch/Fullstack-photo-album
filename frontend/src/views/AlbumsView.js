@@ -71,7 +71,7 @@ const AlbumsView = () => {
         showAlbumLinks={true}
         onAddAlbum={handleAddNewAlbum}
       />
-      <div className="container">
+      <div className="content-container">
         <div className="d-flex flex-wrap">
           {albums
             .slice((currentPage - 1) * pageSize, currentPage * pageSize)

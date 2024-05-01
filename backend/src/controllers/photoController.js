@@ -52,10 +52,10 @@ exports.deletePhoto = async (req, res) => {
 
 exports.getPhotoById = async (req, res) => {
   try {
-    const photoId = req.params.photoId; // Ensure this matches the route parameter
+    const photoId = req.params.photoId; 
     const photo = await photoModel.findPhotoById(photoId);
     if (photo) {
-      res.status(200).json(photo); // Send the photo if found
+      res.status(200).json(photo); 
     } else {
       res.status(404).json({ message: "Photo not found" }); // Handle photo not found
     }
