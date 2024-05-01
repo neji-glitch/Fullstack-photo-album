@@ -1,0 +1,532 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*################################################"*/
+
+/* Custom styles for the UserCard component */
+/* Custom styles for the UserCard component */
+.user-card {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  cursor: pointer;
+  flex: 1 1 200px; /* Allows the card to grow and shrink but not be smaller than 200px */
+  margin: 0.5rem; /* Adds some space around each card */
+  display: flex;
+  flex-direction: column; /* Makes sure the content inside card is column-wise */
+  justify-content: space-between; /* Distributes space inside the card evenly */
+  min-width: 240px; /* This should be the minimum width all cards should have */
+  max-width: 260px;
+  max-height: 600px;
+  background-color: #f0f0f0; /* Light gray background */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    background-color 0.3s ease-in-out; /* Smooth transition for 3D effect and color */
+  will-change: transform, box-shadow, background-color; /* Optimizes the properties to be animated */
+  text-align: center;
+}
+
+.user-card:hover {
+  transform: translateY(-8px); /* Moves the card up slightly */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* Increases shadow to enhance 3D effect */
+  background-color: #e6e6e6; /* Slightly darker background color on hover */
+}
+
+.user-card p {
+  margin-bottom: 0.5rem; /* Reduce spacing between paragraphs */
+  color: #333; /* Enhance text color for better readability */
+}
+
+/* Ensure the card is suitably padded */
+.user-card .ant-card-body {
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .user-card {
+    flex: 1 0 calc(25% - 1rem);
+    margin: 0.5rem;
+    margin-bottom: 1rem;
+    flex-basis: 100%;
+  }
+  .Languages-buttons {
+    margin-right: 0px;
+  }
+}
+
+/*################################################"*/
+
+/* Custom Bootstrap enhancements for UsersView */
+
+/* Language switcher button styling */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* This adds space between flex items */
+  justify-content: center;
+}
+
+.language-switcher {
+  margin: 0.5rem; /* Spacing around buttons */
+  padding: 0.5rem 1rem; /* Padding for button size */
+  border: none; /* Remove default border */
+  border-radius: 0.25rem; /* Rounded corners */
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* Text color */
+  cursor: pointer; /* Cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.language-switcher:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Enhancing the card display */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* This adds space between flex items */
+  /*justify-content: space-around; /* This centers the items and maintains equal space around them */
+  align-items: stretch; /* This ensures that the cards stretch to fill the container */
+}
+
+/* Custom styles for loading and error messages */
+.loading,
+.error {
+  width: 100%; /* Full width */
+  text-align: center; /* Center text */
+  color: #dc3545; /* Bootstrap danger color for errors */
+  font-weight: bold; /* Make text bold */
+}
+
+/* Pagination styling */
+.paginator {
+  margin-top: 1rem; /* Space above the paginator */
+  display: flex;
+  justify-content: center; /* Center paginator */
+}
+
+/* Styling for the card details */
+.card-detail {
+  display: block; /* or inline-block */
+  font-weight: bold; /* makes text bold */
+  color: #333; /* dark gray for better readability */
+}
+
+.card-detail-value {
+  font-weight: bold; /* normal weight for the value */
+  margin-left: 4px; /* spacing between label and value */
+  color: #007bff; /* primary color for the values */
+}
+
+/*.Languages-buttons {
+  margin-right: 900px;
+}*/
+
+/* Custom CSS for modern navbar styling */
+/* Enhanced Navbar Styles */
+/* Enhanced Navbar Styles */
+.navbar {
+  background-color: #dacbcb; /* Light background for a clean look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Enhanced shadow for more depth */
+  padding: 0.5rem 2rem; /* Increased padding for better spacing */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures content is spread out */
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #0056b3;
+}
+
+.nav-link {
+  color: #007bff;
+  font-weight: bold;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.nav-item .btn {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.1s ease;
+}
+
+.nav-item .btn:hover,
+.nav-item .btn:focus {
+  background-color: #0056b3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* Language button container */
+.language-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto; /* Pushes the language buttons to the right */
+}
+
+.language-button {
+  background: none;
+  color: #007bff;
+  padding: 0.5rem 0.75rem;
+  font-weight: bold;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.language-button:hover,
+.language-button:focus {
+  color: #0056b3;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-item,
+  .nav-link,
+  .language-buttons {
+    width: 100%; /* Full width for tap targets on mobile */
+    text-align: center; /* Centers content on mobile */
+  }
+
+  .language-buttons {
+    order: 1; /* Language buttons appear first */
+    margin-top: 0.5rem; /* Adds a top margin for better spacing */
+  }
+
+  .nav-item .btn,
+  .nav-link {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stacks navbar items vertically on small screens */
+    align-items: flex-start; /* Aligns items to the start */
+  }
+
+  .language-buttons {
+    order: 1; /* Ensures language buttons come first in stacking */
+    width: 100%; /* Full width for better tap targets */
+    justify-content: flex-start; /* Aligns buttons to the start */
+  }
+
+  .nav-item .btn,
+  .nav-link {
+    width: 100%; /* Full width links and buttons for easier tapping on mobile */
+    text-align: left; /* Aligns text to the left */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar .navbar-nav {
+    position: fixed;
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    height: 100vh; /* Full viewport height */
+    width: 250px; /* Width of the sidebar menu */
+    flex-direction: column; /* Stack items vertically */
+    transform: translateX(-100%); /* Start off-screen to the left */
+    transition: transform 0.3s ease; /* Smooth slide-in effect */
+    background-color: #adabab; /* Match the navbar background */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    padding-top: 60px; /* Space for the navbar */
+  }
+
+  /* When the navbar is toggled, slide in the navigation */
+  .navbar-nav.toggled {
+    transform: translateX(0); /* Slide in */
+  }
+}
+
+/* Styling for the paragraph inside the card */
+.user-card p {
+  color: #000000; /* A modern, muted paragraph color */
+  font-size: 1rem; /* Standard font size */
+  line-height: 1.5; /* Proper line spacing for readability */
+  margin-bottom: 0.75rem; /* Spacing below paragraph for separation from buttons */
+  font-weight: bold;
+}
+
+/* General styling for buttons inside the card */
+/* Styling for the paragraph inside the card */
+.user-card .ant-btn-primary {
+  background-color: #007bff; /* Custom background color */
+  border-color: #007bff; /* Custom border color */
+}
+
+.user-card .ant-btn-primary:hover {
+  background-color: #0056b3; /* Darker background on hover */
+  border-color: #0056b3; /* Darker border on hover */
+}
+
+.user-card .ant-btn-danger {
+  background-color: #dc3545; /* Custom background color */
+  border-color: #dc3545; /* Custom border color */
+}
+
+.user-card .ant-btn-danger:hover {
+  background-color: #bd2130; /* Darker background on hover */
+  border-color: #bd2130; /* Darker border on hover */
+}
+
+/* Custom secondary button style */
+.user-card .ant-btn-secondary {
+  background-color: #5bb86a; /* Custom background color */
+  background-color: #5bb86a; /* Custom background color */
+  /* Custom border color */
+}
+
+.user-card .ant-btn-secondary:hover {
+  background-color: #545b62; /* Darker background on hover */
+  border-color: #545b62; /* Darker border on hover */
+}
+
+.user-card .p .NumPhoto {
+  font-weight: bold;
+}
+
+.photo-card {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.photo-card-image img {
+  width: 100%;
+  height: auto; /* Adjust based on your design preference */
+  display: block;
+}
+
+.photo-card-body {
+  padding: 15px;
+  text-align: left;
+  background: #fafafa;
+}
+
+.photo-card-title {
+  margin-top: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.photo-card-text {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .photo-card {
+    margin: 10px;
+  }
+
+  .photo-card-body {
+    padding: 10px;
+  }
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dacbcb;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-toggler {
+  display: none; /* Hide by default, will be shown in a media query */
+  cursor: pointer;
+}
+
+.navbar-collapse {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.nav-link,
+.language-button {
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    display: block; /* Initially hidden */
+  }
+
+  .navbar-toggler {
+    display: block; /* Show the toggle button on small screens */
+  }
+}
+@media (max-width: 768px) {
+  .navbar-collapse {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    display: none; /* Initially hidden */
+    background-color: #f8f9fa; /* Light background for the dropdown */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    padding: 1rem;
+    box-sizing: border-box; /* Includes padding and border in the width */
+  }
+
+  .navbar-toggler {
+    display: block; /* Show the toggle button on small screens */
+  }
+
+  .nav-link,
+  .language-button {
+    display: block; /* Makes each link full width */
+    width: 100%;
+    padding: 0.5rem 0; /* Padding for tap targets */
+  }
+}
+@media (max-width: 768px) {
+  .navbar-collapse {
+    display: none;
+  }
+  .navbar-collapse.show {
+    display: block;
+  }
+  .navbar-toggler {
+    display: block;
+  }
+  .navbar-nav {
+    width: 100%;
+  }
+  .nav-link,
+  .language-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-links a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+/* App.css */
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-bottom: 50px; /* Adjust this value based on the height of your footer */
+}
