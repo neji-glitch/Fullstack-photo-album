@@ -129,6 +129,14 @@
   gap: 1rem; /* This adds space between flex items */
   /*justify-content: space-around; /* This centers the items and maintains equal space around them */
   align-items: stretch; /* This ensures that the cards stretch to fill the container */
+  padding-top: 20px; /* Adjust the value as needed */
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  height: 100vh; /* Set the container height to viewport height */
 }
 
 /* Custom styles for loading and error messages */
@@ -174,6 +182,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* Ensures content is spread out */
+  margin-bottom: 40px; /* Adjust the value as needed */
 }
 
 .navbar-brand {
@@ -529,4 +538,66 @@ html {
 .main-content {
   flex: 1;
   padding-bottom: 50px; /* Adjust this value based on the height of your footer */
+}
+
+.check-photos-button a {
+  display: block;
+  padding: 10px;
+  background-color: #f0f0f0; /* Change the background color as needed */
+  text-align: center;
+  text-decoration: none;
+  color: #000; /* Change the text color as needed */
+  border-top: 1px solid #ddd; /* Add a border to separate it from the rest of the card */
+}
+
+.check-photos-button a:hover {
+  background-color: #e0e0e0; /* Change the background color on hover if desired */
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+}
+
+.card-title {
+  flex: 1;
+  margin: 0;
+}
+
+.card-buttons {
+  display: flex;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button:focus {
+  outline: none;
+}
+
+.edit-button span {
+  font-weight: normal; /* Initial font weight of the edit text */
+}
+
+.edit-button:hover span {
+  font-weight: bold; /* Font weight of the edit text on hover */
+}
+
+.delete-button {
+  color: black; /* Initial color of the delete button */
+}
+
+.delete-button:hover {
+  color: red; /* Color of the delete button on hover */
+}
+
+.user-card .card-title {
+  margin-bottom: 10px; /* Adjust the value as needed */
+}
+
+.user-card .NumPhoto {
+  margin-top: 30px; /* Adjust the value as needed */
 }

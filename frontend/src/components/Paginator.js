@@ -3,12 +3,14 @@ import { Pagination } from "antd";
 
 const Paginator = ({ total, onChange, pageSize }) => {
   return (
-    <Pagination
-      onChange={onChange}
-      total={total}
-      pageSize={pageSize}
-      showSizeChanger={false}
-    />
+    <div style={{ textAlign: "center" }}>
+      <Pagination
+        onChange={onChange}
+        total={total}
+        pageSize={pageSize}
+        showSizeChanger={false}
+      />
+    </div>
   );
 };
 

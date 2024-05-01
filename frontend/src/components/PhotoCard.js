@@ -1,9 +1,10 @@
 import React from "react";
-import { Card, Button } from "antd";
-import { useIntl } from "react-intl";
+import { Card } from "antd";
+//import { useIntl } from "react-intl";
+import { DeleteOutlined } from "@ant-design/icons";
 
 const PhotoCard = ({ photo, onDelete, onClick }) => {
-  const intl = useIntl();
+  //const intl = useIntl();
 
   return (
     <Card
@@ -12,14 +13,24 @@ const PhotoCard = ({ photo, onDelete, onClick }) => {
       cover={<img alt={photo.title} src={photo.url} />}
       onClick={onClick}
     >
-      <Card.Meta title={photo.title} />
-      <Button
-        type="danger"
-        onClick={() => onDelete(photo.id)} // Use the passed onDelete function
-        style={{ marginTop: "10px" }}
-      >
-        {intl.formatMessage({ id: "photoCard.delete" })}
-      </Button>
+      <Card.Meta
+        title={
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <span>{photo.title}</span>
+            <div className="icon-button delete-button">
+              <a onClick={() => onDelete(photo.id)}>
+                <DeleteOutlined /> {/* Trash bin icon for delete action */}
+              </a>
+            </div>
+          </div>
+        }
+      />
     </Card>
   );
 };
