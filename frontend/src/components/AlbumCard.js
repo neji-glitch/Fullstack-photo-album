@@ -4,7 +4,7 @@ import { useIntl } from "react-intl";
 import { useSelector } from "react-redux";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
-const AlbumCard = ({ album, onEdit, onDelete, onCheckPhotos, albumId }) => {
+const AlbumCard = ({ album, onEdit, onDelete, onCheckPhotos }) => {
   const intl = useIntl();
 
   const photoCount = useSelector(

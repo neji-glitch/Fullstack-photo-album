@@ -4,8 +4,6 @@ import { DeleteOutlined } from "@ant-design/icons";
 import { Button } from "react-bootstrap";
 
 const PhotoCard = ({ photo, onDelete, onClick }) => {
-  //const intl = useIntl();
-
   return (
     <Card
       hoverable
@@ -24,7 +22,12 @@ const PhotoCard = ({ photo, onDelete, onClick }) => {
           >
             <span>{photo.title}</span>
             <div className="icon-button delete-button">
-              <Button variant="link" onClick={() => onDelete(photo.id)}>
+              <Button
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent click event from bubbling up to the card
+                  onDelete(photo.id);
+                }}
+              >
                 <DeleteOutlined /> {/* Trash bin icon for delete action */}
               </Button>
             </div>

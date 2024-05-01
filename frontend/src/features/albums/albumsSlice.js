@@ -26,12 +26,11 @@ export const deleteAlbum = createAsyncThunk(
     if (!response.ok) {
       throw new Error("Failed to delete album");
     }
-    return albumId; // Return the ID of the deleted album
+    return albumId;
   }
 );
 
 // Async thunk for creating an album
-// Your createAlbum thunk should expect an object that includes necessary properties like `userId` and `title`
 export const createAlbum = createAsyncThunk(
   "albums/createAlbum",
   async (albumData, { rejectWithValue }) => {
@@ -48,11 +47,10 @@ export const createAlbum = createAsyncThunk(
       );
       const data = await response.json();
       if (!response.ok) {
-        // It's possible to log the full response to debug
         console.error("Failed to create album, response:", response);
         throw new Error(data.message || "Could not create album");
       }
-      // It's possible to log the data to debug
+
       console.log(
         "Album created:",
         data.data.id,
@@ -60,7 +58,7 @@ export const createAlbum = createAsyncThunk(
         data.data.userId
       );
       console.log("Album created:", data);
-      return data.data; // Make sure 'data' includes { title, id, userId }
+      return data.data;
     } catch (error) {
       console.error("Error in createAlbum:", error);
       return rejectWithValue(error.message);
@@ -119,13 +117,13 @@ const albumsSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(deleteAlbum.fulfilled, (state, action) => {
+        state.status = "succeeded";
         state.albums = state.albums.filter(
           (album) => album.id !== action.payload
         );
-        // Optionally, set a message indicating success
       })
       .addCase(deleteAlbum.rejected, (state, action) => {
-        // Optionally, handle errors, such as updating state to show that deletion failed
+        state.status = "failed";
         state.error = action.error.message;
       })
       .addCase(createAlbum.pending, (state) => {
@@ -133,7 +131,6 @@ const albumsSlice = createSlice({
       })
       .addCase(createAlbum.fulfilled, (state, action) => {
         state.albums.push(action.payload);
-        //state.albums = [...state.albums, action.payload];
         state.status = "succeeded";
       })
       .addCase(createAlbum.rejected, (state, action) => {
