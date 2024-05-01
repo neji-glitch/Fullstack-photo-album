@@ -48,9 +48,9 @@ const AlbumCard = ({ album, onEdit, onDelete, onCheckPhotos, albumId }) => {
           </Button> } */}
       </p>
       <div className="check-photos-button">
-        <a onClick={() => onCheckPhotos(album.id)}>
+        <Button variant="link" onClick={() => onCheckPhotos(album.id)}>
           {intl.formatMessage({ id: "albumCard.checkPhotos" })}
-        </a>
+        </Button>
       </div>
     </Card>
     //</Link>

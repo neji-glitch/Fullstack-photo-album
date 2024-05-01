@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "antd";
-//import { useIntl } from "react-intl";
 import { DeleteOutlined } from "@ant-design/icons";
+import { Button } from "react-bootstrap";
 
 const PhotoCard = ({ photo, onDelete, onClick }) => {
   //const intl = useIntl();
@@ -24,9 +24,9 @@ const PhotoCard = ({ photo, onDelete, onClick }) => {
           >
             <span>{photo.title}</span>
             <div className="icon-button delete-button">
-              <a onClick={() => onDelete(photo.id)}>
+              <Button variant="link" onClick={() => onDelete(photo.id)}>
                 <DeleteOutlined /> {/* Trash bin icon for delete action */}
-              </a>
+              </Button>
             </div>
           </div>
         }
